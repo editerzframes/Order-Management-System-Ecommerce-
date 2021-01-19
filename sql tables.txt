@@ -1,0 +1,81 @@
+CREATE TABLE login(
+user_id int(10) NOT NULL AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+password varchar(255) NOT NULL,
+PRIMARY KEY (user_id)
+);
+
+CREATE TABLE `categories` (
+ `category_id` int(11) NOT NULL AUTO_INCREMENT,
+ `category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL UNIQUE,
+ `status` varchar(255) NOT NULL,
+ PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `products` (
+ `product_id` int(11) NOT NULL AUTO_INCREMENT,
+ `category_name` varchar(50),
+ `product_name` varchar(255),
+ `refferal_code` varchar(255),
+ `producer` varchar(255),
+ `product_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `image_uploaded_on` datetime NOT NULL,
+ `image_status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+ `product_thumbnail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `thumb_uploaded_on` datetime NOT NULL,
+ `thumb_status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+`measurement` varchar(255),
+`unit` varchar(255),
+`price` int(10) NOT NULL,
+`tax` int(10) NOT NULL,
+`rrp` int(10) NOT NULL,
+`status` varchar(255),
+ PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `customers` (
+ `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+ `customer_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `email` varchar(255) NOT NULL,
+ `number` varchar(255) NOT NULL,
+ `address` varchar(255) NOT NULL,
+ `salesman_id` varchar(255) NOT NULL,
+ `l_email` varchar(255) NOT NULL,
+ `l_pass` varchar(255) NOT NULL,
+ PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `salesperson` (
+ `salesperson_id` int(11) NOT NULL AUTO_INCREMENT,
+ `salesperson_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `email` varchar(255) NOT NULL,
+ `number` varchar(255) NOT NULL,
+ `address` varchar(255) NOT NULL,
+ `status` varchar(255) NOT NULL,
+ `l_email` varchar(255) NOT NULL,
+ `l_pass` varchar(255) NOT NULL,
+ PRIMARY KEY (`salesperson_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `order_product` (
+ `op_id` int(11) NOT NULL AUTO_INCREMENT,
+ `order_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `product_id` varchar(255) NOT NULL,
+ `quantity` varchar(255) NOT NULL,
+ `price` varchar(255) NOT NULL,
+ PRIMARY KEY (`op_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `orders` (
+ `order_id` int(11) NOT NULL AUTO_INCREMENT,
+ `customer_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `total` varchar(255) NOT NULL,
+ `status` varchar(255) NOT NULL,
+ `time` varchar(255) NOT NULL,
+ `preffered_date` varchar(255) DEFAULT NULL,
+ `tally_ref` varchar(255) DEFAULT 'XXX',
+ `order_by` varchar(255) NOT NULL,
+ PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
