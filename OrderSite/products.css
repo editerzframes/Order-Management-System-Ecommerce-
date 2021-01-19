@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.card{
+    margin: 30px;
+    border: grey 1px solid;
+}
+h1{
+    padding: 10px;
+}
+table{
+    margin: 10px;
+    
+}
+table, th, td {
+ 
+    border-collapse: collapse;
+    
+  }
+  table th{
+      background-color: rgb(197, 197, 197);
+      padding: 20px;
+  }
+  th, td {
+    padding: 5px;
+    text-align: center;
+  }
+ input{
+     padding: 10px;
+     border: none;
+     background: rgb(221, 221, 221);
+ }
+ #qty{
+    background: rgb(255, 255, 255);
+    border: black 1px solid;
+ }
+  td img{
+      width: 20%;
+      height: 20%;
+  }
+  th {
+    text-align: center;
+  }
